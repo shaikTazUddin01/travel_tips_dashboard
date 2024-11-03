@@ -17,14 +17,6 @@ export const navbarOptions=[
         href:"/contentManagement"
     },
     {
-        label:"Permium Post",
-        href:"/premiumPost"
-    },
-    {
-        label:"Non-Premium Post",
-        href:"/non-premiumPost"
-    },
-    {
         label:"Payment Management",
         href:"/paymentManagement"
     }

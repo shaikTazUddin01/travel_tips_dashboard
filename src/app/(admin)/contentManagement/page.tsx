@@ -88,7 +88,7 @@ export default function page() {
                 return (
                   <TableRow key={post?._id}>
                     <TableCell>
-                      <Image className="size-10" src={post?.image} />
+                      <Image className="size-10" src={post?.image} alt={post?.category} />
                     </TableCell>
                     <TableCell>{post?.user?.name}</TableCell>
                     <TableCell>{post?.category}</TableCell>

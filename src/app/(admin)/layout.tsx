@@ -15,7 +15,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
 
       <div className="flex mx-auto bg-default-50">
       
-        <div className="hidden lg:flex lg:w-[15%] sticky top-0 h-screen overflow-auto">
+        <div className="hidden lg:flex lg:min-w-[250px] sticky top-0 h-screen overflow-auto">
           <AdminSidebar />
         </div>
 
@@ -24,7 +24,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
           <ToggleSidebar />
         </div>
      
-        <div className="min-h-screen w-full lg:w-[85%]">
+        <div className="min-h-screen w-full ">
           <div className="hidden lg:grid">
           <AdminNavbar/>
           </div>

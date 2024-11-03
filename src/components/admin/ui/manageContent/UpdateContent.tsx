@@ -46,7 +46,7 @@ import TDSelect from "../form/TDSelect";
   
     return (
       <>
-        <Button onPress={onOpen} size="sm" variant="flat" className="text-xl">
+        <Button onPress={onOpen} size="sm" variant="flat" className="text-xl text-green-600">
           <RiEdit2Fill />
         </Button>
         <Modal isOpen={isOpen} onOpenChange={onOpenChange}>

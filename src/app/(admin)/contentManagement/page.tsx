@@ -106,7 +106,7 @@ export default function page() {
                     </TableCell>
                     <TableCell>{post?.like?.length}</TableCell>
 
-                    <TableCell className="flex gap-2">
+                    <TableCell className="flex justify-center gap-2">
                       {/* edit user */}
                       <ContentUpdateByAdmin data={post} id={post?._id as string} />
                       {/* delete user */}

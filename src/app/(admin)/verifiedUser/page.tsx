@@ -78,7 +78,7 @@ export default function VerifiedUser() {
           :allUser?.data?.map((user: TUser) => {
             return (
               <TableRow key={user?._id} className="text-center">
-                <TableCell className="flex justify-center ">
+                <TableCell className=" ">
                   <Image className="size-10 " src={user?.image} alt="user" />
                 </TableCell>
                 <TableCell>{user?.name}</TableCell>

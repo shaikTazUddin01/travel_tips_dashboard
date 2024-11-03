@@ -28,7 +28,7 @@ const AdminNavbar = () => {
       toast.warning("Log out success!");
     };
   return (
-    <div className=" bg-[#212020] flex justify-between lg:justify-end p-5 w-full items-center text-white">
+    <div className=" bg-[#212020] flex justify-between lg:justify-end py-3 px-5 w-full items-center text-white">
       <div className="visible lg:hidden text-default-100 text-3xl">
         {toggle ? (
           <span onClick={() => handleToggle()}>

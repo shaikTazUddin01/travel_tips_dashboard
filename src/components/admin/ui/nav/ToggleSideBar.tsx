@@ -14,20 +14,20 @@ const ToggleSidebar = () => {
   const handleCloseSidebar = () => {
     dispatch(toggleBtn(false));
   };
-  useEffect(() => {
-    if (toggle) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [toggle]);
+  // useEffect(() => {
+  //   if (toggle) {
+  //     document.body.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = "auto";
+  //   }
+  //   return () => {
+  //     document.body.style.overflow = "auto";
+  //   };
+  // }, [toggle]);
   return (
     <div
       className={`relative w-full ${
-        toggle && "bg-[#3d3d3d96] translate-x-0  h-screen text-white"
+        toggle && "bg-[#3d3d3d96] translate-x-0  min-h-screen text-white"
       }`}
     >
       <div

@@ -5,16 +5,10 @@ import {
   useDeleteUserMutation,
 } from "@/redux/features/user/userApi";
 import { TResponse, TUser } from "@/types";
-import {
-  Button,
-  Image,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow,
-} from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
+import { Image } from "@nextui-org/image";
+import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@nextui-org/table";
+
 import { AiFillDelete } from "react-icons/ai";
 import { toast } from "sonner";
 import Swal from "sweetalert2";

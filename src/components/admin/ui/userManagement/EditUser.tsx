@@ -5,9 +5,8 @@ import {
   ModalContent,
   ModalBody,
   ModalFooter,
-  Button,
   useDisclosure,
-} from "@nextui-org/react";
+} from "@nextui-org/modal";
 import { RiEdit2Fill } from "react-icons/ri";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
@@ -15,6 +14,7 @@ import { TResponse, TUser } from "@/types";
 import { useUpdateUserMutation } from "@/redux/features/user/userApi";
 import TDForm from "../form/TDForm";
 import TDSelect from "../form/TDSelect";
+import { Button } from "@nextui-org/button";
 
 export default function EditUser({ id, data }: { id: string; data: TUser }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();

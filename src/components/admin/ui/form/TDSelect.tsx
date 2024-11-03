@@ -1,4 +1,5 @@
-import { Select, SelectItem } from "@nextui-org/react";
+
+import { Select, SelectItem } from "@nextui-org/select";
 import { useFormContext } from "react-hook-form";
 
 interface IProps {

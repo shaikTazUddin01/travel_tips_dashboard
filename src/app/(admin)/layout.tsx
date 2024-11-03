@@ -1,7 +1,7 @@
 // 'use client'
-import AdminNavbar from "@/components/admin/ui/AdminNavbar";
-import AdminSidebar from "@/components/admin/ui/Sidebar";
-import ToggleSidebar from "@/components/admin/ui/ToggleSideBar";
+import AdminNavbar from "@/components/admin/ui/nav/AdminNavbar";
+import AdminSidebar from "@/components/admin/ui/nav/Sidebar";
+import ToggleSidebar from "@/components/admin/ui/nav/ToggleSideBar";
 import React, { ReactNode } from "react";
 
 

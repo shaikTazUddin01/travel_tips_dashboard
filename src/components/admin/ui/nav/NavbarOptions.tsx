@@ -13,8 +13,8 @@ export const navbarOptions=[
     },
     
     {
-        label:"Post Management",
-        href:"/postManagement"
+        label:"Content Management",
+        href:"/contentManagement"
     },
     {
         label:"Permium Post",

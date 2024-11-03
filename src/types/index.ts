@@ -7,3 +7,4 @@ export type IconSvgProps = SVGProps<SVGSVGElement> & {
 
 export * from "./response"
 export * from "./user"
+export * from "./post"

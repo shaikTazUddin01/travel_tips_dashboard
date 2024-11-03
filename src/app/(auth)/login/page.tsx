@@ -21,6 +21,7 @@ import TDInput from "@/components/admin/ui/form/TDInput";
 import { TResponse } from "@/types";
 import { useAppDispatch } from "@/redux/hooks";
 import { loginValidation } from "@/validation/loginValidation";
+import { useState } from "react";
 // import { cookies } from "next/headers";
 // import { userInfo } from "@/src/redux/features/auth/authSlice";
 
@@ -28,6 +29,7 @@ const page = () => {
   const [login] = useLoginApiMutation();
   const dispatch = useAppDispatch();
   const router = useRouter();
+  const [defaultLoinInFo,setDefaultLoinInFo]=useState({})
   // handle login
   const handleLogin: SubmitHandler<FieldValues> = async (data) => {
     try {
@@ -56,27 +58,39 @@ const page = () => {
     }
   };
 
+
+  const handleDefaultLogin=()=>{
+    setDefaultLoinInFo({
+      email:"tihan@gmail.com",
+      password:"1234567"
+    })
+  }
+  console.log(defaultLoinInFo);
+
   return (
     <div
       className=" min-h-screen w-full lg:p-20 bg-cover flex justify-center items-center"
       style={{ backgroundImage: `url(${login1.src})` }}
     >
       <div className="bg-white rounded-2xl h-full  grid  grid-cols-1 lg:grid-cols-2 shadow items-center mx-auto max-w-7xl">
-        <div className="">
+        <div className="col-span-1">
           <Image
             alt="login image"
             className="rounded-2xl hidden lg:flex object-cover w-full h-full"
             src={loginImage}
           />
         </div>
-        <div className="text-center mx-auto w-full lg:w-[80%] p-10">
+        <div className="col-span-1 text-center mx-auto w-full lg:w-[80%] p-10">
           <div className="space-y-1 mb-2">
             <h1 className="text-sky-600 text-3xl lg:text-5xl font-bold ">Wellcome</h1>
-            <p>Login with Email</p>
+            {/* set default login */}
+            <p onClick={()=>handleDefaultLogin()} className="cursor-pointer hover:text-blue-600">Login with Test Admin</p>
           </div>
           <TDForm
             resolver={zodResolver(loginValidation)}
             onSubmit={handleLogin}
+            defaultValues={defaultLoinInFo}
+            
           >
             <div className="space-y-2 text-left">
               <TDInput
@@ -93,25 +107,17 @@ const page = () => {
                 type="password"
                 variant="bordered"
               />
-              <Link href={"/forgotPassword"}>
+              {/* <Link href={"/forgotPassword"}>
                 <p className="text-right text-[14px] text-default-500 hover:text-blue-600">
-                  Forgot Password?
+                  Login with Test Admin
                 </p>
-              </Link>
+              </Link> */}
               <Button className="w-full" color="primary" type="submit">
                 Login
               </Button>
             </div>
           </TDForm>
-          <p>
-            I Don&#39;t have an accout.?{" "}
-            {/* <Link
-              className="text-blue-800 mt-1 hover:text-blue-700"
-              href={"/signup"}
-            >
-              Sign Up
-            </Link> */}
-          </p>
+         
         </div>
       </div>
     </div>

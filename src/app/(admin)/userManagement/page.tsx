@@ -7,16 +7,24 @@ import {
 import { TResponse, TUser } from "@/types";
 import { Button } from "@nextui-org/button";
 import { Image } from "@nextui-org/image";
-import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@nextui-org/table";
+import { Skeleton } from "@nextui-org/skeleton";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableColumn,
+  TableHeader,
+  TableRow,
+} from "@nextui-org/table";
 
 import { AiFillDelete } from "react-icons/ai";
 import { toast } from "sonner";
 import Swal from "sweetalert2";
 
 export default function UserManagement() {
-  const { data: allUser } = useAlluserQuery(undefined);
+  const { data: allUser, isLoading } = useAlluserQuery({});
   const [deleteUser] = useDeleteUserMutation();
-  console.log(allUser);
+
   const handleDeleteUser = async (id: string) => {
     try {
       // before delete alert
@@ -47,21 +55,34 @@ export default function UserManagement() {
   };
 
   return (
-    <div className="w-full p-5">
-      <Table aria-label="static collection table" className="w-[90%] mx-auto">
-        <TableHeader>
+    <div className="w-full px-10 py-5">
+      <h1 className="text-2xl text-center mb-3">User Management</h1>
+      <Table aria-label="static collection table" className="w-full mx-auto">
+        <TableHeader className="text-center">
           <TableColumn>IMAGE</TableColumn>
           <TableColumn>NAME</TableColumn>
           <TableColumn>ROLE</TableColumn>
           {/* <TableColumn>Verify</TableColumn> */}
           <TableColumn>STATUS</TableColumn>
-          <TableColumn>Action</TableColumn>
+          <TableColumn className="text-center">Action</TableColumn>
         </TableHeader>
         <TableBody>
-          {allUser?.data?.map((user: TUser) => {
+          {isLoading ?
+            Array.from({ length: 8 })
+              ?.map((_, idx) => (
+                <TableRow key={idx} className="text-center">
+                  {
+                    Array(5).fill(null).map((_,idx)=>(
+                  <TableCell className=" " key={idx}>
+                    <Skeleton className="w-full h-8 rounded" />
+                  </TableCell>
+                ))  
+                }
+                </TableRow>
+              )):allUser?.data?.map((user: TUser) => {
             return (
               <TableRow key={user?._id} className="text-center">
-                <TableCell className="flex justify-center ">
+                <TableCell className=" ">
                   <Image className="size-10 " src={user?.image} alt="user" />
                 </TableCell>
                 <TableCell>{user?.name}</TableCell>

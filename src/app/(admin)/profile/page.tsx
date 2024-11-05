@@ -37,6 +37,7 @@ const ProfileHeader = () => {
             <div className="flex flex-col md:flex-row justify-center items-center md:justify-between md:items-start flex-1 w-full">
               <div className="text-center md:text-left">
                 <h1 className="font-medium text-xl">{userInFo?.name}</h1>
+                
 
                 {/* <p className="text-sm text-default-600">@tazahmedcs23</p> */}
                 <p className=" text-blue-600 flex gap-2 items-center mt-1">

@@ -4,6 +4,10 @@ export const navbarOptions=[
         href:"/"
     },
     {
+        label:"Profile",
+        href:"/profile"
+    },
+    {
         label:"User Management",
         href:"/userManagement"
     },

@@ -2,14 +2,13 @@
 "use client";
 import { Button } from "@nextui-org/button";
 import Image from "next/image";
-import Link from "next/link";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import loginImage from "@/assets/travelLogin.jpg";
-import login1 from "@/assets/login1.jpg";
+import loginImage from "@/assets/travelLogin.webp";
+import login1 from "@/assets/login1.webp";
 
 import { useLoginApiMutation } from "@/redux/features/auth/authApi";
 import { decodedToken } from "@/utils/decodedToken";
@@ -29,7 +28,9 @@ const page = () => {
   const [login] = useLoginApiMutation();
   const dispatch = useAppDispatch();
   const router = useRouter();
-  const [defaultLoinInFo,setDefaultLoinInFo]=useState({})
+  // const [defaultLoinInFo, setDefaultLoinInFo] = useState<
+  //   Record<string, string>
+  // >({ email: "", password: "" });
   // handle login
   const handleLogin: SubmitHandler<FieldValues> = async (data) => {
     try {
@@ -58,14 +59,13 @@ const page = () => {
     }
   };
 
-
-  const handleDefaultLogin=()=>{
-    setDefaultLoinInFo({
-      email:"tihan@gmail.com",
-      password:"1234567"
-    })
-  }
-  console.log(defaultLoinInFo);
+  // const handleDefaultLogin = () => {
+  //   setDefaultLoinInFo({
+  //     email: "tihan@gmail.com",
+  //     password: "1234567",
+  //   });
+  // };
+  // console.log(defaultLoinInFo);
 
   return (
     <div
@@ -73,7 +73,7 @@ const page = () => {
       style={{ backgroundImage: `url(${login1.src})` }}
     >
       <div className="bg-white rounded-2xl h-full  grid  grid-cols-1 lg:grid-cols-2 shadow items-center mx-auto max-w-7xl">
-        <div className="col-span-1">
+        <div className="col-span-1 lg:min-w-[500px] lg:min-h-[450px]">
           <Image
             alt="login image"
             className="rounded-2xl hidden lg:flex object-cover w-full h-full"
@@ -82,15 +82,21 @@ const page = () => {
         </div>
         <div className="col-span-1 text-center mx-auto w-full lg:w-[80%] p-10">
           <div className="space-y-1 mb-2">
-            <h1 className="text-sky-600 text-3xl lg:text-5xl font-bold ">Wellcome</h1>
+            <h1 className="text-sky-600 text-3xl lg:text-5xl font-bold ">
+              Wellcome
+            </h1>
             {/* set default login */}
-            <p onClick={()=>handleDefaultLogin()} className="cursor-pointer hover:text-blue-600">Login with Test Admin</p>
+            <p
+              // onClick={() => handleDefaultLogin()}
+              className=""
+            >
+              Login with Test Admin Information
+            </p>
           </div>
           <TDForm
             resolver={zodResolver(loginValidation)}
             onSubmit={handleLogin}
-            defaultValues={defaultLoinInFo}
-            
+            // defaultValues={defaultLoinInFo}
           >
             <div className="space-y-2 text-left">
               <TDInput
@@ -99,6 +105,8 @@ const page = () => {
                 required={true}
                 type="email"
                 variant="bordered"
+                defaultvalue="tihan@gmail.com"
+                
               />
               <TDInput
                 label="Password"
@@ -106,6 +114,8 @@ const page = () => {
                 required={true}
                 type="password"
                 variant="bordered"
+                defaultvalue="1234567"
+               
               />
               {/* <Link href={"/forgotPassword"}>
                 <p className="text-right text-[14px] text-default-500 hover:text-blue-600">
@@ -117,7 +127,6 @@ const page = () => {
               </Button>
             </div>
           </TDForm>
-         
         </div>
       </div>
     </div>

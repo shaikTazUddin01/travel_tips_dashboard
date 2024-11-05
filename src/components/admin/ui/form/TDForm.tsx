@@ -27,6 +27,7 @@ if (!!resolver) {
 }
 
 const methods = useForm(formConfig);
+
 useEffect(()=>{
   if (defaultValues) {
     methods.reset(defaultValues)
